@@ -27,6 +27,9 @@ public class GameWindow {
 		try {
 
 			view = new GameView();
+			
+			view.setGrid1(g1);
+			view.setGrid2(g2);
 
 			Dimension d = new Dimension(DEFAULT_SIZE, DEFAULT_SIZE / 2);
 
@@ -34,16 +37,19 @@ public class GameWindow {
 			view.setMinimumSize(d);
 			view.setMaximumSize(d);
 
-			JFrame f = new JFrame();
-
-			f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			/*f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			f.getContentPane().setLayout(new FlowLayout());
 			f.add(view);
 			f.addKeyListener(view);
 			f.setSize(1000, 1000);
 			f.setLocation(50, 50);
 			f.pack();
-			f.setVisible(true);
+			f.setVisible(true);*/
+	
+			OrigGameDesign.addGroundTiles(VERTCIALCELLS, HORIZONTINALCELLS, g1);
+			OrigGameDesign.addObjects(VERTCIALCELLS, HORIZONTINALCELLS, g2);
+			view.setPlayer(OrigGameDesign.addPlayer(VERTCIALCELLS, HORIZONTINALCELLS, g2));
+			OrigGameDesign.addSprites(VERTCIALCELLS, HORIZONTINALCELLS, g2);
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, null, "Error", JOptionPane.ERROR_MESSAGE);

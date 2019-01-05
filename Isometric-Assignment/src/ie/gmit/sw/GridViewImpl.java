@@ -78,17 +78,6 @@ public class GridViewImpl implements GridView {
 		return (GroundTile) tiles.stream().filter(o -> o.getPos().equals(positions[a][b])).findFirst().get();
 	}
 
-	public ItemTile getItemTile(int a, int b) {
-
-		if (tiles.stream().filter(o -> o.getPos().equals(positions[a][b])).findFirst().isPresent()) {
-
-			return (ItemTile) tiles.stream().filter(o -> o.getPos().equals(positions[a][b])).findFirst().get();
-
-		}
-
-		return null;
-	}
-
 	public Position[][] getPositions() {
 		return this.positions;
 	}

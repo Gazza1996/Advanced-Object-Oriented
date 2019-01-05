@@ -2,6 +2,8 @@ package ie.gmit.sw;
 
 import java.util.ArrayList;
 
+import ie.gmit.sw.Model.Position;
+
 public interface GridView {
 	ArrayList<Tile>[][] getGrid();
 	void setGrid(ArrayList<Tile>[][] gridTiles); 
@@ -20,6 +22,8 @@ public interface GridView {
 	
 	void emptyTile();
 	Object[][] getPositions();
+	Position position(int i, int j);
+	void addTile(Tile tile);
 
 
 }
