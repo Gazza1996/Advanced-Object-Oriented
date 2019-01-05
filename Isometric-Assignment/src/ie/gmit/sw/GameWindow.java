@@ -8,17 +8,17 @@ public class GameWindow {
 
 	// scene default size
 	private static final int DEFAULT_SIZE = 1280;
-	private static final int VERTCIALCELLS = 15;
-	private static final int HORIZONTINALCELLS = 15;
-	private static final int TILEHEIGHT = 128;
-	private static final int TILEWIDTH = 64;
+	private static final int VERTCIAL_CELLS = 10;
+	private static final int HORIZONTINAL_CELLS = 10;
+	private static final int TILE_HEIGHT = 128;
+	private static final int TILE_WIDTH = 64;
 
 	/*
 	 * 2 grids declared in GridView for ground and objects
 	 */
 	
-	private GridView g1 = new GridViewImpl(DEFAULT_SIZE, VERTCIALCELLS, HORIZONTINALCELLS, TILEWIDTH, TILEHEIGHT, 0);
-	private GridView g2 = new GridViewImpl(DEFAULT_SIZE, VERTCIALCELLS, HORIZONTINALCELLS, TILEWIDTH, TILEHEIGHT, 10);
+	private GridView g1 = new GridViewImpl(DEFAULT_SIZE, VERTCIAL_CELLS, HORIZONTINAL_CELLS, TILE_WIDTH, TILE_HEIGHT, 0);
+	private GridView g2 = new GridViewImpl(DEFAULT_SIZE, VERTCIAL_CELLS, HORIZONTINAL_CELLS, TILE_WIDTH, TILE_HEIGHT, 10);
 
 	private GameView view;
 
@@ -36,20 +36,21 @@ public class GameWindow {
 			view.setPreferredSize(d);
 			view.setMinimumSize(d);
 			view.setMaximumSize(d);
+			JFrame f = new JFrame("Gary Mannion");
 
-			/*f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			f.getContentPane().setLayout(new FlowLayout());
 			f.add(view);
 			f.addKeyListener(view);
 			f.setSize(1000, 1000);
-			f.setLocation(50, 50);
+			f.setLocation(100, 100);
 			f.pack();
-			f.setVisible(true);*/
+			f.setVisible(true);
 	
-			OrigGameDesign.addGroundTiles(VERTCIALCELLS, HORIZONTINALCELLS, g1);
-			OrigGameDesign.addObjects(VERTCIALCELLS, HORIZONTINALCELLS, g2);
-			view.setPlayer(OrigGameDesign.addPlayer(VERTCIALCELLS, HORIZONTINALCELLS, g2));
-			OrigGameDesign.addSprites(VERTCIALCELLS, HORIZONTINALCELLS, g2);
+			OrigGameDesign.addGroundTiles(VERTCIAL_CELLS, HORIZONTINAL_CELLS, g1);
+			OrigGameDesign.addObjects(VERTCIAL_CELLS, HORIZONTINAL_CELLS, g2);
+			GameView.setPlayer(OrigGameDesign.addPlayer(VERTCIAL_CELLS, HORIZONTINAL_CELLS, g2));
+			//OrigGameDesign.addSprites(VERTCIALCELLS, HORIZONTINALCELLS, g2);
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, null, "Error", JOptionPane.ERROR_MESSAGE);

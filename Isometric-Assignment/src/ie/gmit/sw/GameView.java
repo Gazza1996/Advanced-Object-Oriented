@@ -2,32 +2,14 @@ package ie.gmit.sw;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.*;
 import javax.swing.*;
 import javax.swing.Timer;
-//import javax.swing.text.Position;
-import javax.imageio.*;
-import java.io.*;
-import java.util.*;
 
 import ie.gmit.sw.Model.*;
-import ie.gmit.sw.ground.GroundBuilder;
-import ie.gmit.sw.ground.GroundTile;
-import ie.gmit.sw.ground.GroundType;
 import ie.gmit.sw.Tile;
 
 public class GameView extends JPanel implements ActionListener, KeyListener {
 	private static final long serialVersionUID = 777L;
-
-	private static final int DEFAULT_IMAGE_INDEX = 0; // change
-
-	// Encapsulate the things that vary...
-	public static final int DEFAULT_SIZE = 1280;
-	private static final int TILE_WIDTH = 128;
-	private static final int TILE_HEIGHT = 64;
-
-	private Position pos = new Position(DEFAULT_SIZE / 2, 0);
-
 	private Timer timer;
 
 	/*
@@ -43,25 +25,16 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 
 		setBackground(Color.WHITE);
 		setDoubleBuffered(true);
+		
+		JOptionPane.showMessageDialog(null,
+				"Control the player using arrow keys", null,
+				JOptionPane.DEFAULT_OPTION);
 
 		// new timer start
 		timer = new Timer(100, this);
 		// timer start
 		timer.start();
 
-	}
-
-	private void offsetPositions(int i, int offset) {
-		// TODO Auto-generated method stub
-		pos.setX(((DEFAULT_SIZE - TILE_WIDTH) / 2) - (TILE_WIDTH / 2) * i + offset);
-		pos.setY((TILE_HEIGHT * i) / 2 - offset);
-
-	}
-
-	public void nextPosition() {
-		// TODO Auto-generated method stub
-		pos.setX(pos.getX() + TILE_WIDTH / 2);
-		pos.setY(pos.getY() + TILE_HEIGHT / 2);
 	}
 
 	public void actionPerformed(ActionEvent e) { // This is called each time the timer reaches zero
@@ -106,9 +79,9 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		return player;
 	}
 
-	public static void setPlayer(SpriteTile player) {
-		player.setDirection(Direction.RIGHT);
-		player = player;
+	public static void setPlayer(SpriteTile p) {
+		p.setDirection(Direction.RIGHT);
+		player = p;
 	}
 
 	@Override

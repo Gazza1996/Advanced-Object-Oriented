@@ -6,7 +6,7 @@ import ie.gmit.sw.ground.GroundTile;
 import ie.gmit.sw.GridView;
 
 public class GridViewImpl implements GridView {
-	
+
 	private static int DEFAULT_SIZE;
 	private int offset;
 	private int TILE_HEIGHT;
@@ -14,8 +14,7 @@ public class GridViewImpl implements GridView {
 	private Position pos = new Position(DEFAULT_SIZE / 2, 0);
 	private Position positions[][];
 	private ArrayList<Tile> tiles = new ArrayList<>();
-	
-	
+
 	public GridViewImpl(int size, int down, int across, int tileH, int tileW, int offset) {
 		// set the array size
 		positions = new Position[down][across];
@@ -55,6 +54,7 @@ public class GridViewImpl implements GridView {
 		pos.setX(pos.getX() + TILE_WIDTH / 2);
 		pos.setY(pos.getY() + TILE_HEIGHT / 2);
 	}
+
 	public ArrayList<Tile> getTiles() {
 		return tiles;
 	}
@@ -67,12 +67,10 @@ public class GridViewImpl implements GridView {
 		tiles.add(t);
 	}
 
-	
 	public boolean ocupied(int a, int b) {
 		return tiles.stream().filter(o -> o.getPos().equals(positions[a][b])).findFirst().isPresent();
 	}
 
-	
 	public GroundTile getGroundTile(int a, int b) {
 
 		return (GroundTile) tiles.stream().filter(o -> o.getPos().equals(positions[a][b])).findFirst().get();
@@ -107,72 +105,18 @@ public class GridViewImpl implements GridView {
 
 		return index;
 	}
-	
+
 	// getters/setters
 
 	@Override
-	public ArrayList<Tile>[][] getGrid() {
+	public boolean occupied(int i, int j) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ItemTile getItemTile(int a, int b) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void setGrid(ArrayList<Tile>[][] gridTiles) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setHeight(int height) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setWidth(int width) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moveTileLeft() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moveTileRight() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moveTileUp() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moveTileDown() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void emptyTile() {
-		// TODO Auto-generated method stub
-		
 	}
 }
