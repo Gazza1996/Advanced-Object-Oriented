@@ -5,6 +5,6 @@
  * @author Gary Mannion
  *
  */
-module gmit.sw {
+open module gmit.sw {
 	requires java.desktop;
 }
