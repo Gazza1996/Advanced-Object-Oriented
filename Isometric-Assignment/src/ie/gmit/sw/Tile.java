@@ -2,12 +2,17 @@ package ie.gmit.sw;
 
 import java.awt.image.BufferedImage;
 
-import ie.gmit.sw.Model.Position;
+import ie.gmit.sw.player.Position;
+
+/*
+ * tile class for tiles being used
+ */
 
 public class Tile {
 
 	private Position pos;
 	private BufferedImage image;
+	
 	private int x;
 	private int y;
 
@@ -15,6 +20,7 @@ public class Tile {
 
 	}
 
+	// makes a tile
 	public Tile(Position p, BufferedImage i, int x, int y) {
 		this.pos = p;
 		this.image = i;
@@ -22,6 +28,10 @@ public class Tile {
 		this.y = y;
 	}
 
+	/*
+	 * getters
+	 * setters
+	 */
 	public Position getPos() {
 		return pos;
 	}
@@ -53,6 +63,5 @@ public class Tile {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
 
 }

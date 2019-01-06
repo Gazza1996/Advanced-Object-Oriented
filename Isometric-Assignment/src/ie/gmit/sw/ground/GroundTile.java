@@ -3,29 +3,34 @@ package ie.gmit.sw.ground;
 import java.awt.image.BufferedImage;
 
 import ie.gmit.sw.Tile;
-import ie.gmit.sw.Model.Position;
+import ie.gmit.sw.player.Position;
 
-public class GroundTile extends Tile{
-	
-	private boolean isWalkable;
-	private GroundType type;
-	
+public class GroundTile extends Tile {
+
+	private boolean isMoving; // tile can be moved accross
+	private GroundType type; // tile type
+
 	public GroundTile() {
-		super();
+		super(); // super class
 	}
-	
-	public GroundTile(Position p, BufferedImage i, boolean w, GroundType type, int x, int y) {
+
+	public GroundTile(Position p, int x, int y, BufferedImage i, boolean m, GroundType type) {
+		// pass to super class
 		super(p, i, x, y);
-		this.isWalkable = w;
+		this.isMoving = m;
 		this.type = type;
 	}
-
-	public boolean isWalkable() {
-		return isWalkable;
+	public boolean isMoving() {
+		return isMoving;
 	}
+	
+	/*
+	 * getters
+	 * setters
+	 */
 
-	public void setWalkable(boolean isWalkable) {
-		this.isWalkable = isWalkable;
+	public void setMoving(boolean isMoving) {
+		this.isMoving = isMoving;
 	}
 
 	public GroundType getType() {
@@ -35,5 +40,5 @@ public class GroundTile extends Tile{
 	public void setType(GroundType type) {
 		this.type = type;
 	}
-	
+
 }
